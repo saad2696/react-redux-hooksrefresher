@@ -2,12 +2,16 @@ import React, { Component } from "react";
 
 class Welcome extends Component {
   render() {
+    //destructioring of props 
+    //destructing of states 
+    // const {state1 , state2 } = this.state;
+    const { name , student } = this.props ;
     //return some html
     return (
       <div className="container">
         <h1>
-          My name is {this.props.name} and have student id ={" "}
-          {this.props.student}
+          My name is {name} and have student id ={" "}
+          {student}
         </h1>
         {this.props.children}
       </div>
