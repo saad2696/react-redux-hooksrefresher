@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ClickCounter from "./components/ClickCounter";
+import ContextC from "./components/ContextC";
+import ContextF from "./components/ContextF";
 import CounterCommon from "./components/CounterCommon";
 import HoverCounter from "./components/HoverCounter";
 import ParentComp from "./components/ParentComp";
@@ -24,6 +26,7 @@ import ParentRef from "./components/ParentRef";
 // import RegularComp from "./components/RegularComp";
 import Refsdemo from "./components/Refsdemo";
 import User from "./components/User";
+import { UserProvider } from "./components/UserContext";
 
 class App extends Component {
   render() {
@@ -119,12 +122,16 @@ class App extends Component {
         {/* <ClickCounter/> */}
         {/* <HoverCounter/> */}
         {/* <User render = {(isLoggedin)=> isLoggedin? 'Saad' : 'Guest'}/> */}
-        <CounterCommon
+        {/* <CounterCommon
           render={(count, incrementHandler) => <ClickCounter count={count} incrementHandler={incrementHandler}/>}
         />
          <CounterCommon
           render={(count, incrementHandler) => <HoverCounter count={count} incrementHandler={incrementHandler}/>}
-        />
+        /> */}
+        <UserProvider value="Saad">
+          {/* User provider is responsible for providing a value to all decendent components */}
+          <ContextC />
+        </UserProvider>
       </div>
     );
   }
